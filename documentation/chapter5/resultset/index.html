@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title>
+        
+Pgjdbc | Using the ResultSet Interface
+
+    </title><link rel="stylesheet" href="http://localhost:1313/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
+</head>
+
+<body>
+    <nav class="nav">
+    
+    <a href="/">Home</a>
+    
+    <a class="nav__item" href="/development/" title="">Development</a>
+    
+    <a class="nav__item" href="/download/" title="">Download</a>
+    
+    <a class="nav__item" href="/documentation/" title="">Documentation</a>
+    
+    <a class="nav__item" href="/community/" title="">Community</a>
+    
+</nav>
+    <main>
+        
+<article>
+    <h1>Using the ResultSet Interface</h1>
+    <p><p>The following must be considered when using the <code>ResultSet</code> interface:</p>
+<ul>
+<li>Before reading any values, you must call <code>next()</code>. This returns true if there
+is a result, but more importantly, it prepares the row for processing.</li>
+<li>You must close a <code>ResultSet</code> by calling <code>close()</code> once you have finished using
+it.</li>
+<li>Once you make another query with the <code>Statement</code> used to create a <code>ResultSet</code>,
+the currently open <code>ResultSet</code> instance is closed automatically.</li>
+<li>When PreparedStatement API is used, <code>ResultSet</code> switches to binary mode after
+five query executions (this default is set by the <code>prepareThreshold</code>
+connection property, see <a href="server-prepare.md">Server Prepared Statements</a>).
+This may cause unexpected behavior when some methods are called. For example,
+results on method calls such as <code>getString()</code> on non-string data types,
+while logically equivalent, may be formatted differently after execution exceeds
+the set <code>prepareThreshold</code> when conversion to object method switches to one
+matching the return mode.</li>
+</ul>
+</p>
+</article>
+
+    </main>
+    <hr>
+    <footer>
+    <div>
+        <p>
+            Copyright © 1996-2022 The PostgreSQL Global Development Group
+        </p>
+    </div>
+</footer>
+
+</body>
+
+</html>
