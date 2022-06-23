@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <base href="https://utkar-sh-ukla.github.io/testing/">
+    <title>
+        
+Pgjdbc | Creating a Database
+
+    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.css" integrity="">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="nav">
+    
+    <a href="/testing">Home</a>
+    
+    <a class="nav__item" href="/testing/development/" title="">Development</a>
+    
+    <a class="nav__item" href="/testing/download/" title="">Download</a>
+    
+    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
+    
+    <a class="nav__item" href="/testing/community/" title="">Community</a>
+    
+</nav>
+    <main>
+        
+<article>
+    <h1>Creating a Database</h1>
+    <p><p>When creating a database to be accessed via JDBC it is important to select an
+appropriate encoding for your data. Many other client interfaces do not care
+what data you send back and forth, and will allow you to do inappropriate things,
+but Java makes sure that your data is correctly encoded.  Do not use a database
+that uses the <code>SQL_ASCII</code> encoding. This is not a real encoding and you will
+have problems the moment you store data in it that does not fit in the seven
+bit ASCII character set. If you do not know what your encoding will be or are
+otherwise unsure about what you will be storing the <code>UNICODE</code> encoding is a
+reasonable default to use.</p>
+</p>
+</article>
+
+    </main>
+    <hr>
+    <footer>
+    <div>
+        <p>
+            Copyright © 1996-2022 The PostgreSQL Global Development Group
+        </p>
+    </div>
+</footer>
+
+</body>
+
+</html>

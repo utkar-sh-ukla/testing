@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <base href="https://utkar-sh-ukla.github.io/testing/">
+    <title>
+        
+Pgjdbc | Using the Statement or PreparedStatement Interface
+
+    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.css" integrity="">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="nav">
+    
+    <a href="/testing">Home</a>
+    
+    <a class="nav__item" href="/testing/development/" title="">Development</a>
+    
+    <a class="nav__item" href="/testing/download/" title="">Download</a>
+    
+    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
+    
+    <a class="nav__item" href="/testing/community/" title="">Community</a>
+    
+</nav>
+    <main>
+        
+<article>
+    <h1>Using the Statement or PreparedStatement Interface</h1>
+    <p><p>The following must be considered when using the <code>Statement</code> or <code>PreparedStatement</code>
+interface:</p>
+<ul>
+<li>You can use a single <code>Statement</code> instance as many times as you want. You could
+create one as soon as you open the connection and use it for the connection&rsquo;s
+lifetime. But you have to remember that only one <code>ResultSet</code> can exist
+per <code>Statement</code> or <code>PreparedStatement</code> at a given time.</li>
+<li>If you need to perform a query while processing a <code>ResultSet</code>, you can simply
+create and use another <code>Statement</code>.</li>
+<li>If you are using threads, and several are using the database, you must use a
+separate <code>Statement</code> for each thread. Refer to <a href="thread.html">Chapter 10, <em>Using the Driver in a Multithreaded or a Servlet Environment</em></a>
+if you are thinking of using threads, as it covers some important points.</li>
+<li>When you are done using the <code>Statement</code> or <code>PreparedStatement</code> you should close
+it.</li>
+<li>In JDBC, the question mark (<code>?</code>) is the placeholder for the positional parameters of a <code>PreparedStatement</code>.
+There are, however, a number of PostgreSQL operators that contain a question mark.
+To keep such question marks in a SQL statement from being interpreted as positional parameters,
+use two question marks (<code>??</code>) as escape sequence.
+You can also use this escape sequence in a <code>Statement</code>, but that is not required.
+Specifically only in a <code>Statement</code> a single (<code>?</code>) can be used as an operator.</li>
+</ul>
+</p>
+</article>
+
+    </main>
+    <hr>
+    <footer>
+    <div>
+        <p>
+            Copyright © 1996-2022 The PostgreSQL Global Development Group
+        </p>
+    </div>
+</footer>
+
+</body>
+
+</html>
