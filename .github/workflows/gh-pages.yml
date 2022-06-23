@@ -23,7 +23,7 @@ jobs:
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          hugo-version: '0.80.0'
+          hugo-version: '0.80.0-6+b5'
           extended: true
 
       - name: Build
