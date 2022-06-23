@@ -3,26 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="http://localhost:1313/">
+    <base href="https://utkar-sh-ukla.github.io/testing/">
     <title>
         
 Pgjdbc | Server Prepared Statements
 
-    </title><link rel="stylesheet" href="http://localhost:1313/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
+    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
 </head>
 
 <body>
     <nav class="nav">
     
-    <a href="/">Home</a>
+    <a href="/testing">Home</a>
     
-    <a class="nav__item" href="/development/" title="">Development</a>
+    <a class="nav__item" href="/testing/development/" title="">Development</a>
     
-    <a class="nav__item" href="/download/" title="">Download</a>
+    <a class="nav__item" href="/testing/download/" title="">Download</a>
     
-    <a class="nav__item" href="/documentation/" title="">Documentation</a>
+    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
     
-    <a class="nav__item" href="/community/" title="">Community</a>
+    <a class="nav__item" href="/testing/community/" title="">Community</a>
     
 </nav>
     <main>
@@ -38,7 +38,7 @@ version 7.4, but as Java developers we really just want to use the standard
 <code>PreparedStatement</code> interface.</p>
 <blockquote>
 <p>PostgreSQL 9.2 release notes: prepared statements used to be optimized once, without any knowledge
-of the parameters&rsquo; values. With 9.2, the planner will use specific plans regarding to the parameters
+of the parameters' values. With 9.2, the planner will use specific plans regarding to the parameters
 sent (the query will be planned at execution), except if the query is executed several times and
 the planner decides that the generic plan is not too much more expensive than the specific plans.</p>
 </blockquote>
@@ -207,42 +207,42 @@ of the messages send between the driver and the backend</li>
 </ol>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted -->
 <strong>Example 9.3. Using server side prepared statements</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.*<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServerSidePreparedStatement</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#66d9ef">throws</span> Exception
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>		Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.postgresql.Driver&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>		String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost:5432/test&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		PreparedStatement pstmt <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">prepareStatement</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT ?&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// cast to the pg extension interface
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span> pgstmt <span style="color:#f92672">=</span> pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">unwrap</span><span style="color:#f92672">(</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// on the third execution start using server side statements
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		pgstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrepareThreshold</span><span style="color:#f92672">(</span>3<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;=</span>5<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">setInt</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span>i<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">boolean</span> usingServerPrepare <span style="color:#f92672">=</span> pgstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">isUseServerPrepare</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>			ResultSet rs <span style="color:#f92672">=</span> pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">executeQuery</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>			rs<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Execution: &#34;</span><span style="color:#f92672">+</span>i<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;, Used server side: &#34;</span> <span style="color:#f92672">+</span> usingServerPrepare <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, Result: &#34;</span><span style="color:#f92672">+</span>rs<span style="color:#f92672">.</span><span style="color:#a6e22e">getInt</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>			rs<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>		conn<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Which produces the expected result of using server side prepared statements upon
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.sql.*<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServerSidePreparedStatement</span>
+<span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#66d9ef">throws</span> Exception
+	<span style="color:#f92672">{</span>
+		Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.postgresql.Driver&#34;</span><span style="color:#f92672">);</span>
+		String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost:5432/test&#34;</span><span style="color:#f92672">;</span>
+		Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+
+		PreparedStatement pstmt <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">prepareStatement</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT ?&#34;</span><span style="color:#f92672">);</span>
+
+		<span style="color:#75715e">// cast to the pg extension interface
+</span><span style="color:#75715e"></span>		org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span> pgstmt <span style="color:#f92672">=</span> pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">unwrap</span><span style="color:#f92672">(</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+
+		<span style="color:#75715e">// on the third execution start using server side statements
+</span><span style="color:#75715e"></span>		pgstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrepareThreshold</span><span style="color:#f92672">(</span>3<span style="color:#f92672">);</span>
+
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;=</span>5<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span>
+		<span style="color:#f92672">{</span>
+			pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">setInt</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span>i<span style="color:#f92672">);</span>
+			<span style="color:#66d9ef">boolean</span> usingServerPrepare <span style="color:#f92672">=</span> pgstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">isUseServerPrepare</span><span style="color:#f92672">();</span>
+			ResultSet rs <span style="color:#f92672">=</span> pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">executeQuery</span><span style="color:#f92672">();</span>
+			rs<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Execution: &#34;</span><span style="color:#f92672">+</span>i<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;, Used server side: &#34;</span> <span style="color:#f92672">+</span> usingServerPrepare <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, Result: &#34;</span><span style="color:#f92672">+</span>rs<span style="color:#f92672">.</span><span style="color:#a6e22e">getInt</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
+			rs<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+
+		pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		conn<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Which produces the expected result of using server side prepared statements upon
 the third execution.</p>
-<pre tabindex="0"><code>Execution: 1, Used server side: false, Result: 1
+<pre><code>Execution: 1, Used server side: false, Result: 1
 Execution: 2, Used server side: false, Result: 2
 Execution: 3, Used server side: true, Result: 3
 Execution: 4, Used server side: true, Result: 4
@@ -256,29 +256,29 @@ in place above a <code>PreparedStatement</code>, the <code>Connection</code> it 
 above that the source of the connection be it a <code>Datasource</code> or a URL. The server
 side prepared statement threshold can be set at any of these levels such that
 the value will be the default for all of it&rsquo;s children.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// pg extension interfaces
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGConnection</span> pgconn<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span> pgstmt<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// set a prepared statement threshold for connections created from this url
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost:5432/test?prepareThreshold=3&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// see that the connection has picked up the correct threshold from the url
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>pgconn <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">unwrap</span><span style="color:#f92672">(</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGConnection</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>pgconn<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrepareThreshold</span><span style="color:#f92672">());</span> <span style="color:#75715e">// Should be 3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// see that the statement has picked up the correct threshold from the connection
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>PreparedStatement pstmt <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">prepareStatement</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT ?&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>pgstmt <span style="color:#f92672">=</span> pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">unwrap</span><span style="color:#f92672">(</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>pgstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrepareThreshold</span><span style="color:#f92672">());</span> <span style="color:#75715e">// Should be 3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// change the connection&#39;s threshold and ensure that new statements pick it up
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>pgconn<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrepareThreshold</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>PreparedStatement pstmt <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">prepareStatement</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT ?&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>pgstmt <span style="color:#f92672">=</span> pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">unwrap</span><span style="color:#f92672">(</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>pgstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrepareThreshold</span><span style="color:#f92672">());</span> <span style="color:#75715e">// Should be 5
-</span></span></span></code></pre></div></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// pg extension interfaces
+</span><span style="color:#75715e"></span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGConnection</span> pgconn<span style="color:#f92672">;</span>
+org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span> pgstmt<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">// set a prepared statement threshold for connections created from this url
+</span><span style="color:#75715e"></span>String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost:5432/test?prepareThreshold=3&#34;</span><span style="color:#f92672">;</span>
+
+<span style="color:#75715e">// see that the connection has picked up the correct threshold from the url
+</span><span style="color:#75715e"></span>Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+pgconn <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">unwrap</span><span style="color:#f92672">(</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGConnection</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>pgconn<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrepareThreshold</span><span style="color:#f92672">());</span> <span style="color:#75715e">// Should be 3
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// see that the statement has picked up the correct threshold from the connection
+</span><span style="color:#75715e"></span>PreparedStatement pstmt <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">prepareStatement</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT ?&#34;</span><span style="color:#f92672">);</span>
+pgstmt <span style="color:#f92672">=</span> pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">unwrap</span><span style="color:#f92672">(</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>pgstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrepareThreshold</span><span style="color:#f92672">());</span> <span style="color:#75715e">// Should be 3
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// change the connection&#39;s threshold and ensure that new statements pick it up
+</span><span style="color:#75715e"></span>pgconn<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrepareThreshold</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span>
+PreparedStatement pstmt <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">prepareStatement</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT ?&#34;</span><span style="color:#f92672">);</span>
+pgstmt <span style="color:#f92672">=</span> pstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">unwrap</span><span style="color:#f92672">(</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PGStatement</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>pgstmt<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrepareThreshold</span><span style="color:#f92672">());</span> <span style="color:#75715e">// Should be 5
+</span></code></pre></div></p>
 </article>
 
     </main>

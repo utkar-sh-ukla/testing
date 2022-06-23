@@ -3,26 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="http://localhost:1313/">
+    <base href="https://utkar-sh-ukla.github.io/testing/">
     <title>
         
 Pgjdbc | Using SSL
 
-    </title><link rel="stylesheet" href="http://localhost:1313/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
+    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
 </head>
 
 <body>
     <nav class="nav">
     
-    <a href="/">Home</a>
+    <a href="/testing">Home</a>
     
-    <a class="nav__item" href="/development/" title="">Development</a>
+    <a class="nav__item" href="/testing/development/" title="">Development</a>
     
-    <a class="nav__item" href="/download/" title="">Download</a>
+    <a class="nav__item" href="/testing/download/" title="">Download</a>
     
-    <a class="nav__item" href="/documentation/" title="">Documentation</a>
+    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
     
-    <a class="nav__item" href="/community/" title="">Community</a>
+    <a class="nav__item" href="/testing/community/" title="">Community</a>
     
 </nav>
     <main>
@@ -38,10 +38,10 @@ so it will not be repeated here. There are also instructions in the source
 Before trying to access your SSL enabled server from Java, make sure
 you can get to it via <strong>psql</strong>. You should see output like the following
 if you have established a SSL  connection.</p>
-<pre tabindex="0"><code>$ ./bin/psql -h localhost -U postgres
+<pre><code>$ ./bin/psql -h localhost -U postgres
 psql (9.6.2)
 SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
-Type &#34;help&#34; for help.
+Type &quot;help&quot; for help.
 
 postgres=#
 </code></pre></p>

@@ -3,26 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="http://localhost:1313/">
+    <base href="https://utkar-sh-ukla.github.io/testing/">
     <title>
         
 Pgjdbc | Logging using java.util.logging
 
-    </title><link rel="stylesheet" href="http://localhost:1313/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
+    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
 </head>
 
 <body>
     <nav class="nav">
     
-    <a href="/">Home</a>
+    <a href="/testing">Home</a>
     
-    <a class="nav__item" href="/development/" title="">Development</a>
+    <a class="nav__item" href="/testing/development/" title="">Development</a>
     
-    <a class="nav__item" href="/download/" title="">Download</a>
+    <a class="nav__item" href="/testing/download/" title="">Download</a>
     
-    <a class="nav__item" href="/documentation/" title="">Documentation</a>
+    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
     
-    <a class="nav__item" href="/community/" title="">Community</a>
+    <a class="nav__item" href="/testing/community/" title="">Community</a>
     
 </nav>
     <main>
@@ -58,13 +58,13 @@ in the <code>lib</code> folder of the Java installation directory, although you 
 file by specifying the <code>java.util.logging.config.file</code> property when starting a Java program.
 <code>logging.properties</code> files can also be created and stored with individual projects.</p>
 <p>The following is an example of setting that you can make in the <code>logging.properties</code>:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties"># Specify the handler, the handlers will be installed during VM startup.
+<pre><code class="language-properties" data-lang="properties"># Specify the handler, the handlers will be installed during VM startup.
 handlers = java.util.logging.FileHandler
 
 # Default global logging level.
 .level = OFF
 
-# Default file output is in user&#39;s home directory.
+# Default file output is in user's home directory.
 java.util.logging.FileHandler.pattern = %h/pgjdbc%u.log
 java.util.logging.FileHandler.limit = 5000000
 java.util.logging.FileHandler.count = 20

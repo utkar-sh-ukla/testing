@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Document on Pgjdbc</title>
-    <link>http://localhost:1313/documentation/</link>
+    <link>https://utkar-sh-ukla.github.io/testing/documentation/</link>
     <description>Recent content in Document on Pgjdbc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Jun 2022 22:46:55 +0530</lastBuildDate><atom:link href="http://localhost:1313/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Jun 2022 22:46:55 +0530</lastBuildDate><atom:link href="https://utkar-sh-ukla.github.io/testing/documentation/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -3,26 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="http://localhost:1313/">
+    <base href="https://utkar-sh-ukla.github.io/testing/">
     <title>
         
 Pgjdbc | Connecting to the Database
 
-    </title><link rel="stylesheet" href="http://localhost:1313/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
+    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
 </head>
 
 <body>
     <nav class="nav">
     
-    <a href="/">Home</a>
+    <a href="/testing">Home</a>
     
-    <a class="nav__item" href="/development/" title="">Development</a>
+    <a class="nav__item" href="/testing/development/" title="">Development</a>
     
-    <a class="nav__item" href="/download/" title="">Download</a>
+    <a class="nav__item" href="/testing/download/" title="">Download</a>
     
-    <a class="nav__item" href="/documentation/" title="">Documentation</a>
+    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
     
-    <a class="nav__item" href="/community/" title="">Community</a>
+    <a class="nav__item" href="/testing/community/" title="">Community</a>
     
 </nav>
     <main>
@@ -72,16 +72,16 @@ The following examples illustrate the use of both methods to establish a SSL
 connection.</p>
 <p>If a property is specified both in URL and in <code>Properties</code> object, the value from
 <code>Properties</code> object is ignored.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost/test&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>Properties props <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;secret&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ssl&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> props<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost/test?user=fred&amp;password=secret&amp;ssl=true&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost/test&#34;</span><span style="color:#f92672">;</span>
+Properties props <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">();</span>
+props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;fred&#34;</span><span style="color:#f92672">);</span>
+props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;secret&#34;</span><span style="color:#f92672">);</span>
+props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ssl&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">);</span>
+Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> props<span style="color:#f92672">);</span>
+
+String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost/test?user=fred&amp;password=secret&amp;ssl=true&#34;</span><span style="color:#f92672">;</span>
+Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+</code></pre></div><ul>
 <li>
 <p><strong>user</strong> = String</p>
 <p>The database user on whose behalf the connection is being made.</p>
@@ -97,13 +97,13 @@ connection.</p>
 and it should be properly encoded if provided in the connection URL. Spaces
 are considered to separate command-line arguments, unless escaped with
 a backslash (<code>\</code>); <code>\\</code> represents a literal backslash.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Properties props <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;options&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;-c search_path=test,public,pg_catalog -c statement_timeout=90000&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> props<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost:5432/postgres?options=-c%20search_path=test,public,pg_catalog%20-c%20statement_timeout=90000&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Properties props <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">();</span>
+props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;options&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;-c search_path=test,public,pg_catalog -c statement_timeout=90000&#34;</span><span style="color:#f92672">);</span>
+Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> props<span style="color:#f92672">);</span>
+
+String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:postgresql://localhost:5432/postgres?options=-c%20search_path=test,public,pg_catalog%20-c%20statement_timeout=90000&#34;</span><span style="color:#f92672">;</span>
+Connection conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+</code></pre></div></li>
 <li>
 <p><strong>ssl</strong> = boolean</p>
 <p>Connect using SSL. The server must have been compiled with SSL support.
@@ -229,7 +229,7 @@ performed.</p>
 <li>
 <p><strong>binaryTransfer</strong> = boolean</p>
 <p>Use binary format for sending and receiving data if possible.</p>
-<p>The default is &rsquo;true&rsquo;</p>
+<p>The default is &lsquo;true&rsquo;</p>
 </li>
 <li>
 <p><strong>binaryTransferEnable</strong> = String</p>
@@ -397,7 +397,7 @@ Permissible values are auto (default, see below), sspi (force SSPI) or gssapi (f
 the JDBC client is running on Windows, and the Waffle libraries required
 for SSPI are on the CLASSPATH. Otherwise Kerberos/GSSAPI via JSSE is used.
 Note that this behaviour does not exactly match that of libpq, which uses
-Windows&rsquo; SSPI libraries for Kerberos (GSSAPI) requests by default when on Windows.</p>
+Windows' SSPI libraries for Kerberos (GSSAPI) requests by default when on Windows.</p>
 <p>gssapi mode forces JSSE&rsquo;s GSSAPI to be used even if SSPI is available, matching the pre-9.4 behaviour.</p>
 <p>On non-Windows platforms or where SSPI is unavailable, forcing sspi mode will fail with a PSQLException.</p>
 <pre><code>  To use SSPI with PgJDBC you must ensure that
@@ -432,12 +432,12 @@ class part of the SPN. The default, POSTGRES, is almost always correct.</p>
 </li>
 <li>
 <p><strong>readOnlyMode</strong> = String</p>
-<p>One of &lsquo;ignore&rsquo;, &rsquo;transaction&rsquo;, or &lsquo;always&rsquo;.  Controls the behavior when a connection is set to read only, When set
-to &lsquo;ignore&rsquo; then the <code>readOnly</code> setting has no effect.  When set to &rsquo;transaction&rsquo; and <code>readOnly</code> is set to &rsquo;true&rsquo;
+<p>One of &lsquo;ignore&rsquo;, &lsquo;transaction&rsquo;, or &lsquo;always&rsquo;.  Controls the behavior when a connection is set to read only, When set
+to &lsquo;ignore&rsquo; then the <code>readOnly</code> setting has no effect.  When set to &lsquo;transaction&rsquo; and <code>readOnly</code> is set to &lsquo;true&rsquo;
 and autocommit is &lsquo;false&rsquo; the driver will set the transaction to readonly by sending <code>BEGIN READ ONLY</code>.  When set to
-&lsquo;always&rsquo; and <code>readOnly</code> is set to &rsquo;true&rsquo; the session will be set to READ ONLY if autoCommit is &rsquo;true&rsquo;.  If
+&lsquo;always&rsquo; and <code>readOnly</code> is set to &lsquo;true&rsquo; the session will be set to READ ONLY if autoCommit is &lsquo;true&rsquo;.  If
 autocommit is false the driver will set the transaction to read only by sending <code>BEGIN READ ONLY</code> .</p>
-<p>The default the value is &rsquo;transaction&rsquo;</p>
+<p>The default the value is &lsquo;transaction&rsquo;</p>
 </li>
 <li>
 <p><strong>disableColumnSanitiser</strong> = boolean</p>
@@ -574,12 +574,12 @@ If this is null, the password value in the connection properties will be used.</
 <p>By adding junixsocket you can obtain a socket factory that works with the driver.
 Code can be found at <a href="https://github.com/kohlschutter/junixsocket">https://github.com/kohlschutter/junixsocket</a>. and instructions at <a href="https://kohlschutter.github.io/junixsocket/dependency.html">https://kohlschutter.github.io/junixsocket/dependency.html</a></p>
 <p>Dependencies for junixsocket are :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>com.kohlschutter.junixsocket<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>junixsocket-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>2.3.3<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>Simply add
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+  <span style="color:#f92672">&lt;groupId&gt;</span>com.kohlschutter.junixsocket<span style="color:#f92672">&lt;/groupId&gt;</span>
+  <span style="color:#f92672">&lt;artifactId&gt;</span>junixsocket-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
+  <span style="color:#f92672">&lt;version&gt;</span>2.3.3<span style="color:#f92672">&lt;/version&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>Simply add
 <code>?socketFactory=org.newsclub.net.unix.AFUNIXSocketFactory$FactoryArg&amp;socketFactoryArg=[path-to-the-unix-socket]</code>
 to the connection URL.</p>
 <p>For many distros the default path is /var/run/postgresql/.s.PGSQL.5432</p>

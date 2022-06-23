@@ -3,26 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="http://localhost:1313/">
+    <base href="https://utkar-sh-ukla.github.io/testing/">
     <title>
         
 Pgjdbc | Setting up the Class Path
 
-    </title><link rel="stylesheet" href="http://localhost:1313/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
+    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.2da49a37aa539f43ccc31a3550dc93716c502d3fd07a23d3f30387ed7dd9d366.css" integrity="sha256-LaSaN6pTn0PMwxo1UNyTcWxQLT/QeiPT8wOH7X3Z02Y=">
 </head>
 
 <body>
     <nav class="nav">
     
-    <a href="/">Home</a>
+    <a href="/testing">Home</a>
     
-    <a class="nav__item" href="/development/" title="">Development</a>
+    <a class="nav__item" href="/testing/development/" title="">Development</a>
     
-    <a class="nav__item" href="/download/" title="">Download</a>
+    <a class="nav__item" href="/testing/download/" title="">Download</a>
     
-    <a class="nav__item" href="/documentation/" title="">Documentation</a>
+    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
     
-    <a class="nav__item" href="/community/" title="">Community</a>
+    <a class="nav__item" href="/testing/community/" title="">Community</a>
     
 </nav>
     <main>
@@ -36,9 +36,9 @@ the <strong>java</strong> command line.</p>
 a database, and that application is installed as <code>/usr/local/lib/myapp.jar</code>. The
 PostgreSQL™ JDBC driver installed as <code>/usr/local/pgsql/share/java/postgresql-MM.nn.pp.jar</code>.
 To run the application, we would use:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export CLASSPATH<span style="color:#f92672">=</span>/usr/local/lib/myapp.jar:/usr/local/pgsql/share/java/postgresql-42.2.15.jar:.
-</span></span><span style="display:flex;"><span>java MyApp
-</span></span></code></pre></div><p>Current Java applications will likely use maven, gradle or some other package manager.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export CLASSPATH<span style="color:#f92672">=</span>/usr/local/lib/myapp.jar:/usr/local/pgsql/share/java/postgresql-42.2.15.jar:.
+java MyApp
+</code></pre></div><p>Current Java applications will likely use maven, gradle or some other package manager.
 <a href="https://mvnrepository.com/artifact/org.postgresql/postgresql">Use this to search</a> for the
 latest jars and how to include them in your project</p>
 <p>Loading the driver from within the application is covered in <a href="use.html">Chapter 3, Initializing the Driver</a>.</p>
