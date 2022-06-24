@@ -1,8 +1,11 @@
 ---
 title: Creating and Modifying Database Objects
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 5
+draft: false
+menu:
+  docs:
+    parent: "chapter5"
+    weight: 5
 ---
 
 To create, modify or drop a database object like a table or view you use the

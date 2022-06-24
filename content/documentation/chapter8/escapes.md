@@ -1,8 +1,11 @@
 ---
 title: JDBC escapes
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 1
+draft: false
+menu:
+  docs:
+    parent: "chapter8"
+    weight: 1
 ---
 
 The JDBC specification (like the ODBC specification) acknowledges the fact that

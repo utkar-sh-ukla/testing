@@ -1,8 +1,11 @@
 ---
 title: Escape for outer joins
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 2
+draft: false
+menu:
+  docs:
+    parent: "chapter8"
+    weight: 2
 ---
 
 You can specify outer joins using the following syntax: `{oj table (LEFT|RIGHT|FULL) OUTER JOIN (table | outer-join)

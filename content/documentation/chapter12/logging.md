@@ -1,8 +1,11 @@
 ---
 title: Logging using java.util.logging
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 1
+draft: false
+menu:
+  docs:
+    parent: "chapter12"
+    weight: 1
 ---
 
 <a name="overview"></a>

@@ -1,8 +1,11 @@
 ---
 title: Geometric Data Types
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 2
+draft: false
+menu:
+  docs:
+    parent: "chapter9"
+    weight: 2
 ---
 
 PostgreSQL™ has a set of data types that can store geometric features into a

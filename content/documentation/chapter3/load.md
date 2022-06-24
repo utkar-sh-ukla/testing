@@ -1,8 +1,11 @@
 ---
 title: Loading the Driver
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 2
+draft: false
+menu:
+  docs:
+    parent: "chapter3"
+    weight: 2
 ---
 
 Applications do not need to explicitly load the org.postgresql.Driver

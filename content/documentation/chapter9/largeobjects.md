@@ -1,8 +1,11 @@
 ---
 title: Large Objects
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 3
+draft: false
+menu:
+  docs:
+    parent: "chapter9"
+    weight: 3
 ---
 
 Large objects are supported in the standard JDBC specification. However, that

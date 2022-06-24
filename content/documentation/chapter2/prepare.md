@@ -1,8 +1,11 @@
 ---
 title: Preparing the Database Server for JDBC
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 3
+draft: false
+menu:
+  docs:
+    parent: "chapter2"
+    weight: 3
 ---
 
 Out of the box, Java does not support unix sockets so the PostgreSQL server must be

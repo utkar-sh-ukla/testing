@@ -1,8 +1,11 @@
 ---
 title: Performing Updates
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 4
+draft: false
+menu:
+  docs:
+    parent: "chapter5"
+    weight: 4
 ---
 
 To change data (perform an `INSERT`, `UPDATE`, or `DELETE`) you use the

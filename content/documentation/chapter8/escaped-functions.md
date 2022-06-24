@@ -1,8 +1,11 @@
 ---
 title: Escaped scalar functions
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 4
+draft: false
+menu:
+  docs:
+    parent: "chapter8"
+    weight: 4
 ---
 
 The JDBC specification defines functions with an escape call syntax : `{fn function_name(arguments)}`.

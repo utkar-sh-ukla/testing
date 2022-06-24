@@ -1,8 +1,11 @@
 ---
 title: Tomcat setup
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 5
+draft: false
+menu:
+  docs:
+    parent: "chapter11"
+    weight: 5
 ---
 
 ### Note

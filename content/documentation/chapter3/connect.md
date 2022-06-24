@@ -1,8 +1,11 @@
 ---
 title: Connecting to the Database
 date: 2022-06-19T22:46:55+05:30
-draft: true
-weight: 3
+draft: false
+menu:
+  docs:
+    parent: "chapter3"
+    weight: 3
 ---
 
 With JDBC, a database is represented by a URL (Uniform Resource Locator). With
