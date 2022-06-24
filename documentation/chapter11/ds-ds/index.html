@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset=utf-8><base href=https://utkar-sh-ukla.github.io/testing/><title>Pgjdbc | Applications DataSource</title><link rel=stylesheet href=https://utkar-sh-ukla.github.io/testing/sass/main.4444731f7116386ab6822ca30bdfcce309f779d0e912deceb72a9585a99593b4.css integrity="sha256-RERzH3EWOGq2giyjC9/M4wn3edDpEt7OtyqVhamVk7Q="><link rel=icon href=favicon.ico type=image/x-icon><link rel="shortcut icon" href=favicon.ico type=image/x-icon></head><body><nav class=nav><a href=/testing>Home</a>
+<a class=nav__item href=/testing/development/>Development</a>
+<a class=nav__item href=/testing/download/>Download</a>
+<a class=nav__item href=/testing/documentation/>Documentation</a>
+<a class=nav__item href=/testing/community/>Community</a></nav><main><article><h1>Applications DataSource</h1><p><p>PostgreSQL™ includes two implementations of <code>DataSource</code>, as shown in <a href=ds-ds.html#ds-ds-imp>Table 11.2, “<code>DataSource</code> Implementations”</a>.
+One that does pooling and the other that does not. The pooling implementation
+does not actually close connections when the client calls the <code>close</code> method,
+but instead returns the connections to a pool of available connections for other
+clients to use. This avoids any overhead of repeatedly opening and closing
+connections, and allows a large number of clients to share a small number of
+database connections.</p><p>The pooling data-source implementation provided here is not the most feature-rich
+in the world. Among other things, connections are never closed until the pool
+itself is closed; there is no way to shrink the pool. As well, connections
+requested for users other than the default configured user are not pooled. Its
+error handling sometimes cannot remove a broken connection from the pool. In
+general it is not recommended to use the PostgreSQL™ provided connection pool.
+Check your application server or check out the excellent <a href=http://jakarta.apache.org/commons/dbcp/>jakarta commons DBCP</a>
+project.</p><p><strong>Table 11.2. <code>DataSource</code> Implementations</strong></p><p>Both implementations use the same configuration scheme. JDBC requires that a
+<code>DataSource</code> be configured via JavaBean properties, shown in <a href=ds-ds.html#ds-ds-props>Table 11.3, “<code>DataSource</code> Configuration Properties”</a>,
+so there are get and set methods for each of these properties.</p><p><strong>Table 11.3. <code>DataSource</code> Configuration Properties</strong></p><p>The pooling implementation requires some additional configuration properties,
+which are shown in <a href=ds-ds.html#ds-ds-xprops>Table 11.4, “Additional Pooling <code>DataSource</code> Configuration Properties</a>.</p><p><strong>Table 11.4. Additional Pooling <code>DataSource</code> Configuration Properties</strong></p><p><a href=ds-ds.html#ds-example>Example 11.1, “<code>DataSource</code> Code Example”</a> shows an example
+of typical application code using a pooling <code>DataSource</code>.</p><p><strong>Example 11.1. <code>DataSource</code> Code Example</strong></p><p>Code to initialize a pooling <code>DataSource</code> might look like this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>PGPoolingDataSource source <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> PGPoolingDataSource<span style=color:#f92672>();</span>
+source<span style=color:#f92672>.</span><span style=color:#a6e22e>setDataSourceName</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A Data Source&#34;</span><span style=color:#f92672>);</span>
+source<span style=color:#f92672>.</span><span style=color:#a6e22e>setServerNames</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> String<span style=color:#f92672>[]</span> <span style=color:#f92672>{</span><span style=color:#e6db74>&#34;localhost&#34;</span><span style=color:#f92672>});</span>
+source<span style=color:#f92672>.</span><span style=color:#a6e22e>setDatabaseName</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;test&#34;</span><span style=color:#f92672>);</span>
+source<span style=color:#f92672>.</span><span style=color:#a6e22e>setUser</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;testuser&#34;</span><span style=color:#f92672>);</span>
+source<span style=color:#f92672>.</span><span style=color:#a6e22e>setPassword</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;testpassword&#34;</span><span style=color:#f92672>);</span>
+source<span style=color:#f92672>.</span><span style=color:#a6e22e>setMaxConnections</span><span style=color:#f92672>(</span>10<span style=color:#f92672>);</span>
+</code></pre></div><p>note: setServerName has been deprecated in favour of setServerNames. This was
+done to support multiple hosts.</p><p>Then code to use a connection from the pool might look like this. Note that it
+is critical that the connections are eventually closed. Else the pool will
+“leak” connections and will eventually lock all the clients out.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Connection conn <span style=color:#f92672>=</span> source<span style=color:#f92672>.</span><span style=color:#a6e22e>getConnection</span><span style=color:#f92672>())</span>
+<span style=color:#f92672>{</span>
+    <span style=color:#75715e>// use connection
+</span><span style=color:#75715e></span><span style=color:#f92672>}</span>
+<span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>SQLException e<span style=color:#f92672>)</span>
+<span style=color:#f92672>{</span>
+    <span style=color:#75715e>// log error
+</span><span style=color:#75715e></span><span style=color:#f92672>}</span>
+</code></pre></div></p></article></main><hr><footer><div><p>Copyright © 1996-2022 The PostgreSQL Global Development Group</p></div></footer></body></html>
