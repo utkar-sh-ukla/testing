@@ -1,64 +1,17 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <base href="https://utkar-sh-ukla.github.io/testing/">
-    <title>
-        
-Pgjdbc | Using SSL
-
-    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.css" integrity="">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
-
-<body>
-    <nav class="nav">
-    
-    <a href="/testing">Home</a>
-    
-    <a class="nav__item" href="/testing/development/" title="">Development</a>
-    
-    <a class="nav__item" href="/testing/download/" title="">Download</a>
-    
-    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
-    
-    <a class="nav__item" href="/testing/community/" title="">Community</a>
-    
-</nav>
-    <main>
-        
-<article>
-    <h1>Using SSL</h1>
-    <p><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<h1 id="configuring-the-server">Configuring the Server</h1>
-<p>Configuring the PostgreSQL™ server for SSL is covered in the <a href="https://www.postgresql.org/docs/current/ssl-tcp.html">main
+<!doctype html><html><head><meta charset=utf-8><base href=http://localhost:1313/><title>Pgjdbc | Using SSL</title><link rel=stylesheet href=http://localhost:1313/sass/main.4444731f7116386ab6822ca30bdfcce309f779d0e912deceb72a9585a99593b4.css integrity="sha256-RERzH3EWOGq2giyjC9/M4wn3edDpEt7OtyqVhamVk7Q="><link rel=icon href=favicon.ico type=image/x-icon><link rel="shortcut icon" href=favicon.ico type=image/x-icon></head><body><nav class=nav><a href=/>Home</a>
+<a class=nav__item href=/development/>Development</a>
+<a class=nav__item href=/download/>Download</a>
+<a class=nav__item href=/documentation/>Documentation</a>
+<a class=nav__item href=/community/>Community</a></nav><main><article><h1>Using SSL</h1><p><p></p><h1 id=configuring-the-server>Configuring the Server</h1><p>Configuring the PostgreSQL™ server for SSL is covered in the <a href=https://www.postgresql.org/docs/current/ssl-tcp.html>main
 documentation</a>,
 so it will not be repeated here. There are also instructions in the source
-<a href="https://github.com/pgjdbc/pgjdbc/tree/master/certdir">certdir</a>
+<a href=https://github.com/pgjdbc/pgjdbc/tree/master/certdir>certdir</a>
 Before trying to access your SSL enabled server from Java, make sure
 you can get to it via <strong>psql</strong>. You should see output like the following
-if you have established a SSL  connection.</p>
-<pre><code>$ ./bin/psql -h localhost -U postgres
+if you have established a SSL connection.</p><pre><code>$ ./bin/psql -h localhost -U postgres
 psql (9.6.2)
 SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
 Type &quot;help&quot; for help.
 
 postgres=#
-</code></pre></p>
-</article>
-
-    </main>
-    <hr>
-    <footer>
-    <div>
-        <p>
-            Copyright © 1996-2022 The PostgreSQL Global Development Group
-        </p>
-    </div>
-</footer>
-
-</body>
-
-</html>
+</code></pre></p></article></main><hr><footer><div><p>Copyright © 1996-2022 The PostgreSQL Global Development Group</p></div></footer></body></html>

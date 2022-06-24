@@ -1,100 +1,31 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <base href="https://utkar-sh-ukla.github.io/testing/">
-    <title>
-        
-Pgjdbc | Application Servers ConnectionPoolDataSource
-
-    </title><link rel="stylesheet" href="https://utkar-sh-ukla.github.io/testing/sass/main.css" integrity="">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
-
-<body>
-    <nav class="nav">
-    
-    <a href="/testing">Home</a>
-    
-    <a class="nav__item" href="/testing/development/" title="">Development</a>
-    
-    <a class="nav__item" href="/testing/download/" title="">Download</a>
-    
-    <a class="nav__item" href="/testing/documentation/" title="">Documentation</a>
-    
-    <a class="nav__item" href="/testing/community/" title="">Community</a>
-    
-</nav>
-    <main>
-        
-<article>
-    <h1>Application Servers ConnectionPoolDataSource</h1>
-    <p><p>PostgreSQL™ includes one implementation of <code>ConnectionPoolDataSource</code> named
-<code>org.postgresql.ds.PGConnectionPoolDataSource</code>.</p>
-<p>JDBC requires that a <code>ConnectionPoolDataSource</code> be configured via JavaBean
-properties, shown in <a href="ds-cpds.html#ds-cpds-props">Table 11.1, “<code>ConnectionPoolDataSource</code> Configuration Properties”</a>,
-so there are get and set methods for each of these properties.</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
-<strong>Table 11.1. <code>ConnectionPoolDataSource</code> Configuration Properties</strong></p>
-<!-- raw HTML omitted -->
-<p>database server is listening on (or 0 to use the default port) <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->user<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->STRING<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->User used to make database connections<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->password<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->STRING<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->Password used to make database connections<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->ssl<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->BOOLEAN<!-- raw HTML omitted -->
-<!-- raw HTML omitted --> If <code>true</code>, use SSL encrypted
-connections (default <code>false</code>) <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->sslfactory<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->STRING<!-- raw HTML omitted -->
-<!-- raw HTML omitted --> Custom <code>javax.net.ssl.SSLSocketFactory</code>
-class name (see the section called <a href="ssl-factory.html">“Custom
-SSLSocketFactory”</a>) <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->defaultAutoCommit<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->BOOLEAN<!-- raw HTML omitted -->
-<!-- raw HTML omitted --> Whether connections should have autocommit enabled or
-disabled when they are supplied to the caller. The default is <code>false</code>, to disable autocommit. <!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p>Many application servers use a properties-style syntax to configure these
+<!doctype html><html><head><meta charset=utf-8><base href=http://localhost:1313/><title>Pgjdbc | Application Servers ConnectionPoolDataSource</title><link rel=stylesheet href=http://localhost:1313/sass/main.4444731f7116386ab6822ca30bdfcce309f779d0e912deceb72a9585a99593b4.css integrity="sha256-RERzH3EWOGq2giyjC9/M4wn3edDpEt7OtyqVhamVk7Q="><link rel=icon href=favicon.ico type=image/x-icon><link rel="shortcut icon" href=favicon.ico type=image/x-icon></head><body><nav class=nav><a href=/>Home</a>
+<a class=nav__item href=/development/>Development</a>
+<a class=nav__item href=/download/>Download</a>
+<a class=nav__item href=/documentation/>Documentation</a>
+<a class=nav__item href=/community/>Community</a></nav><main><article><h1>Application Servers ConnectionPoolDataSource</h1><p><p>PostgreSQL™ includes one implementation of <code>ConnectionPoolDataSource</code> named
+<code>org.postgresql.ds.PGConnectionPoolDataSource</code>.</p><p>JDBC requires that a <code>ConnectionPoolDataSource</code> be configured via JavaBean
+properties, shown in <a href=ds-cpds.html#ds-cpds-props>Table 11.1, “<code>ConnectionPoolDataSource</code> Configuration Properties”</a>,
+so there are get and set methods for each of these properties.</p><p><strong>Table 11.1. <code>ConnectionPoolDataSource</code> Configuration Properties</strong></p><p>database server is listening on (or 0 to use the default port)
+user
+STRING
+User used to make database connections
+password
+STRING
+Password used to make database connections
+ssl
+BOOLEAN If <code>true</code>, use SSL encrypted
+connections (default <code>false</code>)
+sslfactory
+STRING Custom <code>javax.net.ssl.SSLSocketFactory</code>
+class name (see the section called <a href=ssl-factory.html>“Custom
+SSLSocketFactory”</a>)
+defaultAutoCommit
+BOOLEAN Whether connections should have autocommit enabled or
+disabled when they are supplied to the caller. The default is <code>false</code>, to disable autocommit.</p><p>Many application servers use a properties-style syntax to configure these
 properties, so it would not be unusual to enter properties as a block of text.
 If the application server provides a single area to enter all the properties,
-they might be listed like this:</p>
-<p><code>serverName=localhost</code>
+they might be listed like this:</p><p><code>serverName=localhost</code>
 <code>databaseName=test</code>
 <code>user=testuser</code>
-<code>password=testpassword</code></p>
-<p>Or, if semicolons are used as separators instead of newlines, it could look like
-this:</p>
-<p><code>serverName=localhost;databaseName=test;user=testuser;password=testpassword</code></p>
-</p>
-</article>
-
-    </main>
-    <hr>
-    <footer>
-    <div>
-        <p>
-            Copyright © 1996-2022 The PostgreSQL Global Development Group
-        </p>
-    </div>
-</footer>
-
-</body>
-
-</html>
+<code>password=testpassword</code></p><p>Or, if semicolons are used as separators instead of newlines, it could look like
+this:</p><p><code>serverName=localhost;databaseName=test;user=testuser;password=testpassword</code></p></p></article></main><hr><footer><div><p>Copyright © 1996-2022 The PostgreSQL Global Development Group</p></div></footer></body></html>
