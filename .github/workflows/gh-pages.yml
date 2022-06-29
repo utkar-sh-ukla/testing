@@ -16,6 +16,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: BRANCH_NAME
+        uses: actions/checkout@v2
         run: echo ${{ github.head_ref }}
 
       - uses: actions/checkout@v3
