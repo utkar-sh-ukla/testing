@@ -1,10 +1,6 @@
 name: GitHub Pages
 
-on:
-  push:
-    branches:
-      - master  # Set a branch name to trigger deployment
-  pull_request:
+on: [push, pull_request]
 
 defaults:
   run:
@@ -13,11 +9,18 @@ defaults:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
+
     permissions:
       contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
+      - uses: actions/checkout@v1
+      - run: npm ci
+      - uses: nelonoel/branch-name@v1
+      # Use branch name for whatever purpose
+      - run: echo ${BRANCH_NAME}
+
       - uses: actions/checkout@v3
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
@@ -33,10 +36,10 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        # If you're changing the branch from master,
-        # also change the `master` in `refs/heads/master`
+        # If you're changing the branch from ${BRANCH_NAME},
+        # also change the `${BRANCH_NAME}` in `refs/heads/${BRANCH_NAME}`
         # below accordingly.
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref == 'refs/heads/${BRANCH_NAME}' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/public
