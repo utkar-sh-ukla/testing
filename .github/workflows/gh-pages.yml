@@ -15,21 +15,8 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      # extract branch name
-      - name: Extract branch name
-        if: github.event_name != 'pull_request'
-        shell: bash
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      # extract branch name on pull request
-      - name: Print branch name
-        if: github.event_name == 'pull_request'
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
-
-      # print branch name
-      - name: Get branch name
-        run: echo 'The branch name is' $BRANCH_NAME
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
 
       - uses: actions/checkout@v3
         with:
@@ -46,10 +33,10 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        # If you're changing the branch from $BRANCH_NAME,
-        # also change the `$BRANCH_NAME` in `refs/heads/$BRANCH_NAME`
+        # If you're changing the branch from ${GITHUB_REF##*/},
+        # also change the `${GITHUB_REF##*/}` in `refs/heads/${GITHUB_REF##*/}`
         # below accordingly.
-        if: ${{ github.ref == 'refs/heads/$BRANCH_NAME' }}
+        if: ${{ github.ref == 'refs/heads/${GITHUB_REF##*/}' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/public
