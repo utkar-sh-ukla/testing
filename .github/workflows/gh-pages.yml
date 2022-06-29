@@ -15,8 +15,6 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Branch name
-        run: echo running on branch ${GITHUB_REF##*/}
 
       - uses: actions/checkout@v3
         with:
@@ -33,10 +31,10 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        # If you're changing the branch from ${GITHUB_REF##*/},
-        # also change the `${GITHUB_REF##*/}` in `refs/heads/${GITHUB_REF##*/}`
+        # If you're changing the branch from ${{ github.head_ref }},
+        # also change the `${{ github.head_ref }}` in `refs/heads/${{ github.head_ref }}`
         # below accordingly.
-        if: ${{ github.ref == 'refs/heads/${GITHUB_REF##*/}' }}
+        if: ${{ github.ref == 'refs/heads/${{ github.head_ref }}' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/public
