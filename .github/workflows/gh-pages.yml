@@ -16,8 +16,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
 
-      - uses: actions/checkout@v2
-        run: echo ${{ github.head_ref }}
+      - run: echo "$GITHUB_CONTEXT"
 
       - uses: actions/checkout@v3
         with:
