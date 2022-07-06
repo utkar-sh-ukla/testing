@@ -2,6 +2,7 @@
 title: Storing Binary Data
 date: 2022-06-19T22:46:55+05:30
 draft: false
+weight: 19
 menu:
   docs:
     parent: "chapter7"
@@ -51,7 +52,6 @@ transaction block by calling `setAutoCommit(false)`.
 contains some examples on how to process binary data using the PostgreSQL™ JDBC
 driver.
 
-<a name="binary-data-example"></a>
 ***Example 7.1. Processing Binary Data in JDBC***
 
 For example, suppose you have a table containing the file names of images and you

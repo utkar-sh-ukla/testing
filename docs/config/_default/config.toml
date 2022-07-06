@@ -1,3 +1,8 @@
-baseURL = "https://utkar-sh-ukla.github.io/testing/"
+# Production BaseURL
+# baseURL = "https://pgjdbc.github.io/pgjdbc/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Pgjdbc"
+[permalinks]
+    posts = "/:year/:month/:slug/"
+    page = "/:slug/"

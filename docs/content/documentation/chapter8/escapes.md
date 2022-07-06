@@ -2,6 +2,7 @@
 title: JDBC escapes
 date: 2022-06-19T22:46:55+05:30
 draft: false
+weight: 20
 menu:
   docs:
     parent: "chapter8"
@@ -22,7 +23,6 @@ The parsing of the sql statements for these escapes can be disabled using
 `Connection.nativeSQL(String sql)` provides another way to have escapes processed.
 It translates the given SQL to a SQL suitable for the PostgreSQL™ backend.
 
-<a name="escape-use-example"></a>
 **Example 8.1. Using JDBC escapes**
 
 To use the JDBC escapes, you simply write your SQL replacing date/time literal
@@ -38,7 +38,6 @@ is the portable version for
 ResultSet rs = st.executeQuery("SELECT extract(week from DATE '2005-01-24')");
 ```
 
-<a name="like-escape"></a>
 # Escape for like escape character
 
 You can specify which escape character to use in strings comparison (with `LIKE`)

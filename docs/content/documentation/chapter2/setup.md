@@ -1,18 +1,13 @@
 ---
-title: Setting up the JDBC Driver
+title: Getting the Driver
 date: 2022-06-19T22:46:55+05:30
 draft: false
+weight: 2
 menu:
   docs:
     parent: "chapter2"
     weight: 1
 ---
-
-This section describes the steps you need to take before you can write or run
-programs that use the JDBC interface.
-
-<a name="build"></a>
-# Getting the Driver
 
 Precompiled versions of the driver can be downloaded from the [PostgreSQL™ JDBC web site](https://jdbc.postgresql.org).
 

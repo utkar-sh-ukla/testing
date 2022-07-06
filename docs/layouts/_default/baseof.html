@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="{{.Site.BaseURL}}">
     <title>
         {{ block "title" . }}
         {{ .Site.Title }}
@@ -12,19 +11,17 @@
     {{- $sass := resources.Get "sass/main.scss" -}}
     {{- $style := $sass | resources.ToCSS | resources.Fingerprint -}}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{"favicon.ico" | relURL}}">
 </head>
 
 <body>
-    {{partial "navbar" .}}
+    {{- partial "navbar" . -}}
     <main>
         {{ block "main" . }}
         <!-- The part of the page that begins to differ between templates -->
         {{ end }}
     </main>
-    <hr>
-    {{ partial "footer" . }}
+    {{- partial "footer" . -}}
 </body>
 
 </html>

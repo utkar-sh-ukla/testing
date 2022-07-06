@@ -2,13 +2,13 @@
 title: Physical and Logical replication API
 date: 2022-06-19T22:46:55+05:30
 draft: false
+weight: 30
 menu:
   docs:
     parent: "chapter9"
     weight: 7
 ---
 
-<a name="overview"></a>
 # Overview
 
 Postgres 9.4 (released in December 2014) introduced a new feature called logical replication. Logical replication allows
@@ -74,7 +74,6 @@ host    replication   all   127.0.0.1/32    md5
 host    replication   all   ::1/128         md5
 ```
 
-<a name="logical-replication"></a>
 # Logical replication
 
 Logical replication uses a replication slot to reserve WAL logs on the server and also defines which decoding plugin to use to decode the WAL logs to the required format, for example you can decode changes as json, protobuf, etc. To demonstrate how to  use the pgjdbc replication API we will use the `test_decoding` plugin that is include in the `postgresql-contrib` package, but you can use your own decoding plugin. There are a few on github which can be used as examples.
@@ -329,7 +328,6 @@ table public.test_logic_table: DELETE: pk[integer]:1
 COMMIT
 ```
 
-<a name="physical-replication"></a>
 # Physical replication
 
 API for physical replication looks like the API for logical replication. Physical replication does not require a replication

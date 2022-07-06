@@ -2,6 +2,7 @@
 title: Performing Updates
 date: 2022-06-19T22:46:55+05:30
 draft: false
+weight: 15
 menu:
   docs:
     parent: "chapter5"
@@ -15,7 +16,6 @@ it returns the number of rows affected by the `INSERT`, `UPDATE`, or `DELETE`
 statement. [Example 5.3, “Deleting Rows in JDBC”](update.html#delete-example)
 illustrates the usage.
 
-<a name="delete-example"></a>
 **Example 5.3. Deleting Rows in JDBC**
 
 This example will issue a simple `DELETE` statement and print out the number of

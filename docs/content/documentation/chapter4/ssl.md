@@ -1,15 +1,13 @@
 ---
-title: Using SSL
+title: Configuring the Server
 date: 2022-06-19T22:46:55+05:30
 draft: false
+weight: 9
 menu:
   docs:
     parent: "chapter4"
     weight: 1
 ---
-
-<a name="ssl-server"></a>
-# Configuring the Server
 
 Configuring the PostgreSQL™ server for SSL is covered in the [main
 documentation](https://www.postgresql.org/docs/current/ssl-tcp.html),

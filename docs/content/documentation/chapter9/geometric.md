@@ -2,6 +2,7 @@
 title: Geometric Data Types
 date: 2022-06-19T22:46:55+05:30
 draft: false
+weight: 25
 menu:
   docs:
     parent: "chapter9"
@@ -14,7 +15,6 @@ in Java with the org.postgresql.geometric package. Please consult the Javadoc
 mentioned in [Chapter 13, *Further Reading*](reading.html) for details of
 available classes and features.
 
-<a name="geometric-circle-example"></a>
 **Example 9.1. Using the CIRCLE datatype JDBC**
 
 ```java
