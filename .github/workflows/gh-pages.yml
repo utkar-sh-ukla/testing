@@ -1,6 +1,10 @@
 name: GitHub Pages
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master  # Set a branch name to trigger deployment
+  pull_request:
 
 defaults:
   run:
@@ -9,7 +13,6 @@ defaults:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
-
     permissions:
       contents: write
     concurrency:
@@ -30,10 +33,10 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        # If you're changing the branch from  ${{ github.head_ref || github.ref_name }} ,
-        # also change the ` ${{ github.head_ref || github.ref_name }} ` in `refs/heads/ ${{ github.head_ref || github.ref_name }} `
+        # If you're changing the branch from master,
+        # also change the `master` in `refs/heads/master`
         # below accordingly.
-        if: ${{ github.ref == 'refs/heads/${{ github.head_ref || github.ref_name }}' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/public
