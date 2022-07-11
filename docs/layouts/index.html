@@ -1,5 +1,7 @@
 {{ define "main" }}
-    <h1>
-        HOMEPAGE
-    </h1>
+<section class="hero">
+    {{ partialCached "hero-image.html" . }}
+    {{ partial "hero-container.html" . }}
+</section>
+{{ partial "home-body-container.html" . }}
 {{ end }}

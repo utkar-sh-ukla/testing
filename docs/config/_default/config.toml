@@ -1,6 +1,6 @@
 # Production BaseURL
-baseURL = "https://utkar-sh-ukla.github.io/testing/"
-# baseURL = "/"
+# baseURL = "https://pgjdbc.github.io/pgjdbc/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Pgjdbc"
 [permalinks]

@@ -1,14 +1,30 @@
 .flex {
    @include flexbox;
-   @include flex-direction(row);
 
    article {
       padding: 0.5rem;
-   };
+      max-width: 80ch;
+      margin-right: auto;
+      margin-left: auto;
 
-   .prev__next {
-        @include flexbox;
-        @include flex-direction(row);
-        @include justify-content(space-between);
-   };
-};
+      width: 60%;
+
+      pre code {
+         display: block;
+         padding: 1.5em;
+         font-size: .875rem;
+         line-height: 2;
+         overflow-x: auto;
+      }
+   }
+
+   .pagination {
+      @include flexbox;
+      @include flex-direction(row);
+      @include justify-content(space-between);
+   }
+
+   aside {
+      width: 20%;
+   }
+}
