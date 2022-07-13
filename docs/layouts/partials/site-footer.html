@@ -1,14 +1,14 @@
 <footer class="footer" role="contentinfo">
     <div class="footer__items">
-        {{ range $.Site.Data.data.footer}}
-            <div class="footer__items__links">
-                <ul>
-                    <li>{{ .title }}</li>
-                    {{ range .links}}
-                        <li><a href="{{ .url }}">{{ .name }}</a></li>
-                    {{end}}
-                </ul>
-            </div>
+        {{ range $.Site.Data.footer.external }}
+        <div class="footer__items__links">
+            <ul role="list">
+                <li>{{ .title }}</li>
+                {{ range .links}}
+                <li><a href="{{ .url }}">{{ .name }}</a></li>
+                {{end}}
+            </ul>
+        </div>
         {{ end }}
     </div>
     <p class="copyright">

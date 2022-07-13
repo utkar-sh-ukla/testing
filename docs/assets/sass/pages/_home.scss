@@ -1,40 +1,52 @@
+.home {
+    max-width: 80rem;
+    margin: 2rem auto;
+}
+
+// Hero Section
+
 .hero {
     @include flexbox;
-    margin-block: 1em;
 
-    &__image {
-        // width: 60%;
-        // aspect-ratio: 1;
+    // margin-block: 1em;
+    height: 50vh;
+
+    &__media {
+        width: 50%;
     }
 
-    &__container {
+    &__content {
         @include flexbox;
         @include flex-direction(column);
         @include justify-content(center);
         @include align-items(center);
-        width: 30%;
+        width: 50%;
 
-        &__heading {
+        &__head {
             font-size: var(--fs-800);
         }
 
-        &__description {
+        &__desc {
             font-size: var(--fs-400);
         }
+
+        &__actions {
+            display: inline-block;
+        }
     }
 }
 
-.container {
-    @include flexbox;
-    @include justify-content(center);
+// Info Section
 
-    margin-block: 4em;
+.info {
+    @include flexbox;
+    @include justify-content(space-between);
+
+    // margin-block: 4em;
 
     color: var(--clr-blue-400);
-    gap: 0em 5em;
 
-    &__left {
-        width: 40%;
+    &__about {
         @include flexbox;
         @include flex-direction(column);
         @include align-items(center);
@@ -45,8 +57,7 @@
         }
     }
 
-    &__right {
-        width: 40%;
+    &__release {
         @include flexbox;
         @include flex-direction(column);
         @include align-items(center);
@@ -57,23 +68,40 @@
         }
     }
 }
+
+// Feature Section
 
 .feature {
     @include flexbox;
-    @include justify-content(center);
-    margin-block: 4em;
-    gap: 0em 5em;
+    @include justify-content(space-between);
+    // margin-block: 4em;
     color: var(--clr-blue-400);
 
     &__item {
         @include flexbox;
         @include flex-direction(column);
         @include align-items(center);
-        width: 27%;
+        gap: 0 6em;
 
-        &__icon {
+        &__media {
             width: 4rem;
             aspect-ratio: 1;
+        }
+    }
+}
+
+// Report Section
+
+.report {
+
+    &__row {
+        @include flexbox;
+        @include justify-content(space-between);
+        padding-block: 2rem;
+
+        &__item {
+            @include flexbox;
+            width: 30%
         }
     }
 }

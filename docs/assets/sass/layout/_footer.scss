@@ -18,15 +18,12 @@
             ul,
             li {
                 color: var(--clr-white-300);
-                list-style: none;
-                font-size: var(--fs-400);
                 margin: 0;
                 padding: 0;
 
                 a {
                     color: var(--clr-white-300);
                     text-decoration: none;
-                    font-size: var(--fs-300);
 
                     &:hover,
                     &:focus {

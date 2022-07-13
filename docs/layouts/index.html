@@ -1,7 +1,10 @@
 {{ define "main" }}
-<section class="hero">
-    {{ partialCached "hero-image.html" . }}
-    {{ partial "hero-container.html" . }}
-</section>
-{{ partial "home-body-container.html" . }}
+<div class="home flow">
+    {{ partial "home/hero.html" . }}
+    {{ partial "home/info.html" . }}
+    {{ partial "home/feature.html" . }}
+    {{ partial "home/example.html" . }}
+    {{ partial "home/report.html" . }}
+    {{ partial "home/support.html" . }}
+</div>
 {{ end }}
