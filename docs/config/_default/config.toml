@@ -4,5 +4,5 @@ baseURL = "https://utkar-sh-ukla.github.io/testing/"
 languageCode = "en-us"
 title = "Pgjdbc"
 [permalinks]
-    posts = "/:year/:month/:slug/"
-    page = "/:slug/"
+page = "/:slug/"
+posts = "/:year/:month/:slug/"
