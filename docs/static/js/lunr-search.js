@@ -47,6 +47,7 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
         request.open( "GET", "/search.json" );
         request.responseType = "json";
         request.addEventListener( "load", function ( event ) {
+            let documents = request.response;
             lookup = {};
             index = lunr( function () {
                 // Uncomment the following line and replace de by the right language
@@ -62,9 +63,9 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
                 this.field( "description" );
                 this.field( "categories" );
 
-                for ( let doc of request.response ) {
-                    this.add( doc );
-                    lookup[doc.uri] = doc;
+                for (let document of documents) {
+                    this.add(document);
+                    lookup[document.uri] = document;
                 }
             } );
 
