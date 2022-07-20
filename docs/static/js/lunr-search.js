@@ -45,7 +45,7 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
     function initIndex() {
         let request = new XMLHttpRequest();
         console.log( request );
-        request.open("GET", "{{ partial "relative-url.html" (dict "$" . "filename" (((.Site.GetPage "").OutputFormats.Get "SearchIndex").RelPermalink | strings.TrimPrefix "/")) }}" );
+        request.open("GET", "testing/search.json" );
         request.responseType = "json";
         request.addEventListener( "load", function ( event ) {
             let documents = request.response;
