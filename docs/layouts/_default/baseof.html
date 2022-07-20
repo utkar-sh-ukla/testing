@@ -17,13 +17,15 @@
 
     {{ partial "site-manifest.html" . }}
 
-    <script defer language="javascript" type="module"  src="{{ "/js/index.js" | urlize | relURL }}"></script>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script defer language="javascript" type="module" src="{{ " /js/index.js" | urlize | relURL }}"></script>
+
 
 </head>
 
 <body>
     {{ block "nav" . }}{{ partial "site-nav.html" . }}{{ end }}
-    <main role="main">
+    <main role="main" class="main-inner">
         {{ block "main" . }}{{ end }}
     </main>
     {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
