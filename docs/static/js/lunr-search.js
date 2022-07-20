@@ -5,6 +5,7 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
 
     let form = document.getElementById( "search" );
     let input = document.getElementById( "search-input" );
+    let path = document.getElementById( "host" ).href;
 
     form.addEventListener( "submit", function ( event ) {
         event.preventDefault();
@@ -44,9 +45,8 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
 
     function initIndex() {
         let request = new XMLHttpRequest();
-        console.log( request );
-
-        request.open("GET", "https://utkar-sh-ukla.github.io/testing/search.json" );
+        // console.log( request );
+        request.open("GET", `${path}/search.json` );
         request.responseType = "json";
         request.addEventListener( "load", function ( event ) {
             let documents = request.response;
