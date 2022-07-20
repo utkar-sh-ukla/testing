@@ -45,7 +45,8 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
     function initIndex() {
         let request = new XMLHttpRequest();
         console.log( request );
-        request.open("GET", "../search.json" );
+
+        request.open("GET", "https://utkar-sh-ukla.github.io/testing/search.json" );
         request.responseType = "json";
         request.addEventListener( "load", function ( event ) {
             let documents = request.response;
