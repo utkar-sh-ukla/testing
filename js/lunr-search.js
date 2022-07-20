@@ -44,8 +44,8 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
 
     function initIndex() {
         let request = new XMLHttpRequest();
-        console.log(request);
-        request.open( "GET", "/search.json" );
+        console.log( request );
+        request.open("GET", "{{ partial "relative-url.html" (dict "$" . "filename" (((.Site.GetPage "").OutputFormats.Get "SearchIndex").RelPermalink | strings.TrimPrefix "/")) }}" );
         request.responseType = "json";
         request.addEventListener( "load", function ( event ) {
             let documents = request.response;
@@ -64,8 +64,8 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
                 this.field( "description" );
                 this.field( "categories" );
 
-                for (let document of documents) {
-                    this.add(document);
+                for ( let document of documents ) {
+                    this.add( document );
                     lookup[document.uri] = document;
                 }
             } );
