@@ -1,15 +1,15 @@
 window.addEventListener( "DOMContentLoaded", function ( event ) {
-    var index = null;
-    var lookup = null;
-    var queuedTerm = null;
+    let index = null;
+    let lookup = null;
+    let queuedTerm = null;
 
-    var form = document.getElementById( "search" );
-    var input = document.getElementById( "search-input" );
+    let form = document.getElementById( "search" );
+    let input = document.getElementById( "search-input" );
 
     form.addEventListener( "submit", function ( event ) {
         event.preventDefault();
 
-        var term = input.value.trim();
+        let term = input.value.trim();
         if ( !term )
             return;
 
@@ -43,7 +43,7 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
     }
 
     function initIndex() {
-        var request = new XMLHttpRequest();
+        let request = new XMLHttpRequest();
         request.open( "GET", "/search.json" );
         request.responseType = "json";
         request.addEventListener( "load", function ( event ) {
@@ -62,7 +62,7 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
                 this.field( "description" );
                 this.field( "categories" );
 
-                for ( var doc of request.response ) {
+                for ( let doc of request.response ) {
                     this.add( doc );
                     lookup[doc.uri] = doc;
                 }
@@ -76,15 +76,15 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
     }
 
     function search( term ) {
-        var results = index.search( term );
+        let results = index.search( term );
 
         // The element where search results should be displayed, adjust as needed.
-        var target = document.querySelector( ".main-inner" );
+        let target = document.querySelector( ".main-inner" );
 
         while ( target.firstChild )
             target.removeChild( target.firstChild );
 
-        var title = document.createElement( "h1" );
+        let title = document.createElement( "h1" );
         title.id = "search-results";
         title.className = "list-title";
 
@@ -97,12 +97,12 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
         target.appendChild( title );
         document.title = title.textContent;
 
-        var template = document.getElementById( "search-result" );
-        for ( var result of results ) {
-            var doc = lookup[result.ref];
+        let template = document.getElementById( "search-result" );
+        for ( let result of results ) {
+            let doc = lookup[result.ref];
 
             // Fill out search result template, adjust as needed.
-            var element = template.content.cloneNode( true );
+            let element = template.content.cloneNode( true );
             element.querySelector( ".summary-title-link" ).href =
                 element.querySelector( ".read-more-link" ).href = doc.uri;
             element.querySelector( ".summary-title-link" ).textContent = doc.title;
@@ -117,17 +117,17 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
     // This matches Hugo's own summary logic:
     // https://github.com/gohugoio/hugo/blob/b5f39d23b8/helpers/content.go#L543
     function truncate( text, minWords ) {
-        var match;
-        var result = "";
-        var wordCount = 0;
-        var regexp = /(\S+)(\s*)/g;
+        let match;
+        let result = "";
+        let wordCount = 0;
+        let regexp = /(\S+)(\s*)/g;
         while ( match = regexp.exec( text ) ) {
             wordCount++;
             if ( wordCount <= minWords )
                 result += match[0];
             else {
-                var char1 = match[1][match[1].length - 1];
-                var char2 = match[2][0];
+                let char1 = match[1][match[1].length - 1];
+                let char2 = match[2][0];
                 if ( /[.?!"]/.test( char1 ) || char2 == "\n" ) {
                     result += match[1];
                     break;
