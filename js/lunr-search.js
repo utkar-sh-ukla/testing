@@ -18,9 +18,6 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
     }, false );
 
     function startSearch( term ) {
-        // Start icon animation.
-        form.setAttribute( "data-running", "true" );
-
         if ( index ) {
             // Index already present, search directly.
             search( term );
@@ -37,29 +34,21 @@ window.addEventListener( "DOMContentLoaded", function ( event ) {
     }
 
     function searchDone() {
-        // Stop icon animation.
-        form.removeAttribute( "data-running" );
-
         queuedTerm = null;
     }
 
     function initIndex() {
         let request = new XMLHttpRequest();
         // console.log( request );
-        request.open("GET", `${path}/search.json` );
+        request.open( "GET", `${path}/search.json` );
         request.responseType = "json";
         request.addEventListener( "load", function ( event ) {
             let documents = request.response;
             lookup = {};
             index = lunr( function () {
-                // Uncomment the following line and replace de by the right language
-                // code to use a lunr language pack.
-
-                // this.use(lunr.de);
 
                 this.ref( "uri" );
 
-                // If you added more searchable fields to the search index, list them here.
                 this.field( "title" );
                 this.field( "content" );
                 this.field( "description" );
